@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:id="@+id/mMcontainer"
+    app:cardCornerRadius="10dp"
+    >
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/ivMainMenu"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:id="@+id/tvNomeRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="@id/ivMainMenu"
+            app:layout_constraintTop_toBottomOf="@id/ivMainMenu"
+            android:textStyle="bold"
+            android:text="Tony's Roma"/>
+
+        <TextView
+            android:id="@+id/tvEndereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/ivMainMenu"
+        app:layout_constraintTop_toBottomOf="@id/tvNomeRestaurant"
+        android:textStyle="bold"
+        android:text="Rua macarena numero 12"/>
+
+        <TextView
+            android:id="@+id/tvFuncionamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/ivMainMenu"
+            app:layout_constraintTop_toBottomOf="@id/tvEndereco"
+            android:textStyle="bold"
+            android:text="fecha 22:00"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
