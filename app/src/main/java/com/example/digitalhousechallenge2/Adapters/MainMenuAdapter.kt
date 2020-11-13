@@ -12,11 +12,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.digitalhousechallenge2.Fragments.CardapioFragment
 import com.example.digitalhousechallenge2.MainActivity.Companion.fm
+import com.example.digitalhousechallenge2.Models.Pratos
 import com.example.digitalhousechallenge2.Models.Restaurant
 import com.example.digitalhousechallenge2.R
+import kotlinx.android.synthetic.main.fragment_cardapio.*
+import kotlinx.android.synthetic.main.modelo_tela_cardapio.view.*
 
 class MainMenuAdapter(
         private val restaurantList: List<Restaurant>
+
 ): RecyclerView.Adapter<MainMenuAdapter.RestaurantViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
        val view = LayoutInflater.from(parent.context).inflate(R.layout.modelo_de_tela_main_menu,parent,false)
@@ -35,12 +39,15 @@ class MainMenuAdapter(
         holder.txtFuncionamento.text = restaurantList[position].closeAt
 
         holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putParcelable("codRestaurant",restaurantList[position])
 
-           fm.beginTransaction().replace(R.id.fragmentContainer,CardapioFragment(),null).addToBackStack(null).commit()
+            val cardapio = CardapioFragment()
+            cardapio.arguments = bundle
 
+           fm.beginTransaction().replace(R.id.fragmentContainer,cardapio,"card").addToBackStack(null).commit()
 
         }
-
 
     }
 
@@ -49,6 +56,7 @@ class MainMenuAdapter(
         val txtName: TextView = itemView.findViewById(R.id.tvNomeRestaurant)
         val txtEndereco: TextView = itemView.findViewById(R.id.tvEndereco)
         val txtFuncionamento: TextView = itemView.findViewById(R.id.tvFuncionamento)
+       // val imageView2 : ImageView = itemView.findViewById(R.id.ivMainCardapio)
 
 
 

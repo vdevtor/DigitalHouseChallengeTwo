@@ -1,24 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.CardapioFragment">
 
 
-     <androidx.constraintlayout.widget.ConstraintLayout
-         android:layout_width="match_parent"
-         android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivMainCardapio"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/arrowTelaPratos"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintStart_toStartOf="@id/ivMainCardapio"
+            app:layout_constraintTop_toTopOf="@id/ivMainCardapio"
+            android:layout_marginStart="14dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
 
-         <androidx.recyclerview.widget.RecyclerView
-             android:id="@+id/recycleViewCardapio"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tvNomeRestaurantCardapio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_marginStart="22dp"
+            android:text="Tony's Roma"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:background="#95000000"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/ivMainCardapio"
+            app:layout_constraintBottom_toBottomOf="@id/ivMainCardapio"
+            />
+
+        <TextView
+            android:id="@+id/tvPratoPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="16dp"
+            android:text="Pratos Principais"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNomeRestaurantCardapio"
+           />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewCardapio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="@id/tvPratoPrincipal"
+            app:layout_constraintTop_toBottomOf="@id/tvPratoPrincipal"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
-
-</FrameLayout>

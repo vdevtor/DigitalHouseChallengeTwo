@@ -14,4 +14,6 @@
     <string name="nome_completo">Nome</string>
     <string name="log_in">LOG IN</string>
     <string name="register">REGISTER</string>
+    <string name="teste_descricaoCompleta">Nosso macarrão tem um toque especial do Renomado chefe Gustavo Fraldine,Sendo considerado sua \'Obra Prima\',o prato é composto por: Macarrão na manteiga, maionese caseira, tempero especial e vem com os mais frescos camarões selecionados a dedo</string>
+    <string name="teste_nomeTelaDesricao">Pizza mussarela</string>
 </resources>

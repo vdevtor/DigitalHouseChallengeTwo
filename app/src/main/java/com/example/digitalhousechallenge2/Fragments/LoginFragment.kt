@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.digitalhousechallenge2.R
 import com.google.android.material.textfield.TextInputLayout
@@ -17,10 +19,12 @@ import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
     val fm = fragmentManager
+    var bar = true
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
 
@@ -28,16 +32,36 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val bundle: Bundle
+         var actionBar = getActionbar();
+
+
+            if (!bar){
+                actionBar?.title = "DigitalHouse Food"
+
+            }
+
+
+
+
+
+
+
 
         view.findViewById<AppCompatButton>(R.id.btnRegister).setOnClickListener(chamaTelaCadastro())
         view.findViewById<AppCompatButton>(R.id.btnLogin).setOnClickListener(chamaMainMenu())
         initComponents()
+        getActionbar()
+
 
 
     }
 
     private fun chamaMainMenu(): View.OnClickListener? = View.OnClickListener {
+
+
+
         var allOkay = true
         if (etEmail.text.toString().isBlank()) {
             etEmail.error = getString(R.string.campo_obrigatorio,
@@ -66,6 +90,7 @@ class LoginFragment : Fragment() {
             fragmentManager.apply {
                 this?.beginTransaction()?.replace(R.id.fragmentContainer, MainMenuFragment(), null)?.addToBackStack(null)
                         ?.commit()
+                bar = false
             }
         }
 
@@ -84,8 +109,13 @@ class LoginFragment : Fragment() {
                     ?.addToBackStack(null)?.commit()
         }
     }
-
+    fun getActionbar() : ActionBar?
+    {
+        return (activity as AppCompatActivity).supportActionBar
+    }
 }
+
+
 
 
 

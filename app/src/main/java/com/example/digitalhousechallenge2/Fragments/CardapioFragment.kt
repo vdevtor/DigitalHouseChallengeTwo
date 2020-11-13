@@ -5,9 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.digitalhousechallenge2.Adapters.CardapioAdapter
 import com.example.digitalhousechallenge2.Adapters.MainMenuAdapter
 import com.example.digitalhousechallenge2.Models.Pratos
@@ -17,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_cardapio.*
 
 
 class CardapioFragment : Fragment() {
-    private var pratos = mutableListOf<Pratos>()
+  var pratos = mutableListOf<Pratos>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -27,33 +32,37 @@ class CardapioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        populate()
+       // populate()
+        var actionBar = getActionbar();
+        actionBar?.hide()
+        val restaurant = arguments?.getParcelable<Restaurant>("codRestaurant")
+        Glide.with(view.context).load(restaurant?.imageRestaurant).into(ivMainCardapio)
+        view.findViewById<TextView>(R.id.tvNomeRestaurantCardapio).text = restaurant?.nomeRestaurant
+
+        view.findViewById<ImageView>(R.id.arrowTelaPratos).setOnClickListener {
+
+
+            fragmentManager.apply {
+                this?.beginTransaction()?.replace(R.id.fragmentContainer,MainMenuFragment())?.addToBackStack(null)?.commit()
+            }
+
+        }
+
+
+
 
         val recycleview = view.findViewById<RecyclerView>(R.id.recycleViewCardapio)
-        recycleview.adapter = CardapioAdapter(pratos)
-        recycleview.layoutManager = LinearLayoutManager(view.context)
+        recycleview.adapter = restaurant?.cardapio?.let { CardapioAdapter(it) }
+
+        recycleview.layoutManager = GridLayoutManager(view.context,2)
 
     }
 
-    private fun populate() {
-        pratos.clear()
-      pratos.add(Pratos(
-                "https://conteudo.imguol.com.br/c/entretenimento/71/2020/05/27/guia-do-hamburguer---sanduiche-1590607899872_v2_450x337.jpg",
-                "https://randomuser.me/api/portraits/women/33.jpg",
-                "Salada de fruta com coberto extra"))
-        pratos.add(Pratos(
-                "https://conteudo.imguol.com.br/c/entretenimento/71/2020/05/27/guia-do-hamburguer---sanduiche-1590607899872_v2_450x337.jpg",
-                "https://conteudo.imguol.com.br/c/entretenimento/71/2020/05/27/guia-do-hamburguer---sanduiche-1590607899872_v2_450x337.jpg",
-                "Salada de fruta com coberto extra"))
 
-        pratos.add(Pratos(
-                "https://conteudo.imguol.com.br/c/entretenimento/71/2020/05/27/guia-do-hamburguer---sanduiche-1590607899872_v2_450x337.jpg",
-                "https://conteudo.imguol.com.br/c/entretenimento/71/2020/05/27/guia-do-hamburguer---sanduiche-1590607899872_v2_450x337.jpg",
-                "Salada de fruta com coberto extra"))
-
-
-
-
-
+    fun getActionbar() : ActionBar?
+    {
+        return (activity as AppCompatActivity).supportActionBar
     }
+
+
 }

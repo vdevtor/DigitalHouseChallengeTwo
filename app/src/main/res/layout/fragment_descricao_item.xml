@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.DescricaoItemFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center">
+
+
+        <ImageView
+            android:id="@+id/ivDescricaoItem"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/arrowTelaDescricao"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignStart="@id/ivDescricaoItem"
+            android:layout_alignTop="@id/ivDescricaoItem"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+        <TextView
+            android:id="@+id/tvPratoNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ivDescricaoItem"
+            android:layout_marginStart="17dp"
+            android:background="#220C0C0C"
+            android:shadowRadius="15"
+            android:text="@string/teste_nomeTelaDesricao"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <me.biubiubiu.justifytext.library.JustifyTextView
+            android:id="@+id/tvDescricaoItemC"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@id/ivDescricaoItem"
+            android:layout_alignEnd="@id/ivDescricaoItem"
+            android:layout_below="@id/ivDescricaoItem"
+            android:layout_margin="10dp"
+            android:letterSpacing="0.110"
+            android:text="@string/teste_descricaoCompleta"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
