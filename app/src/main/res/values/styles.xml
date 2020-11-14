@@ -25,7 +25,7 @@
     <style name="ChangedActionBar" parent="Theme.AppCompat.DayNight.DarkActionBar">
 
         <item name="colorPrimary">@color/red</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/red</item>
         <item name="colorAccent">@color/design_default_color_background</item>
         <item name="titleTextColor">@color/white</item>
         <item name="android:windowTitleBackgroundStyle">@drawable/contorno</item>

@@ -42,9 +42,7 @@ class CardapioFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.arrowTelaPratos).setOnClickListener {
             fragmentManager?.apply {
-                actionBar?.title = "DigitalHouse Food"
-                this.beginTransaction().replace(R.id.fragmentContainer,MainMenuFragment()).commit()
-                this.beginTransaction().remove(CardapioFragment())
+               popBackStack()
 
 
             }
