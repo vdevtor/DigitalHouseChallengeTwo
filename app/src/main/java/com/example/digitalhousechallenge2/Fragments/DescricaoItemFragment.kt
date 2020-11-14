@@ -34,13 +34,21 @@ class DescricaoItemFragment : Fragment() {
         val cardapioItem = arguments?.getParcelable<Pratos>("itemCard")
         Glide.with(view.context).load(cardapioItem?.imagePrato).into(ivDescricaoItem)
         view.findViewById<TextView>(R.id.tvPratoNome).text = cardapioItem?.pratoDescricao
+        view.findViewById<TextView>(R.id.tvPratoNome2).text = cardapioItem?.pratoDescricao
         view.findViewById<TextView>(R.id.tvDescricaoItemC).text = cardapioItem?.pratoDescricaoCompleta
-      //view.findViewById<ImageView>(R.id.arrowTelaDescricao).setOnClickListener(backArrow())
+      view.findViewById<ImageView>(R.id.arrowTelaDescricao).setOnClickListener(backArrow())
+
+    }
+
+    private fun backArrow(): View.OnClickListener? = View.OnClickListener {
+        fragmentManager?.apply {
+            popBackStack()
+        }
 
     }
 
 
-    }
+}
 
 
 

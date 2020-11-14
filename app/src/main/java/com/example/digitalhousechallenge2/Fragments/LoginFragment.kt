@@ -35,18 +35,7 @@ class LoginFragment : Fragment() {
 
         val bundle: Bundle
          var actionBar = getActionbar();
-
-
-            if (!bar){
                 actionBar?.title = "DigitalHouse Food"
-
-            }
-
-
-
-
-
-
 
 
         view.findViewById<AppCompatButton>(R.id.btnRegister).setOnClickListener(chamaTelaCadastro())
@@ -54,13 +43,9 @@ class LoginFragment : Fragment() {
         initComponents()
         getActionbar()
 
-
-
     }
 
     private fun chamaMainMenu(): View.OnClickListener? = View.OnClickListener {
-
-
 
         var allOkay = true
         if (etEmail.text.toString().isBlank()) {
@@ -83,14 +68,11 @@ class LoginFragment : Fragment() {
 
         }
 
-
-
-
         if (allOkay) {
             fragmentManager.apply {
-                this?.beginTransaction()?.replace(R.id.fragmentContainer, MainMenuFragment(), null)?.addToBackStack(null)
-                        ?.commit()
-                bar = false
+                this?.beginTransaction()?.replace(R.id.fragmentContainer, MainMenuFragment(), null)?.addToBackStack(null)?.commit()
+
+
             }
         }
 
@@ -109,10 +91,10 @@ class LoginFragment : Fragment() {
                     ?.addToBackStack(null)?.commit()
         }
     }
-    fun getActionbar() : ActionBar?
-    {
-        return (activity as AppCompatActivity).supportActionBar
-    }
+        fun getActionbar() : ActionBar?
+        {
+            return (activity as AppCompatActivity).supportActionBar
+        }
 }
 
 

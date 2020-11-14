@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:addStatesFromChildren="true"
     tools:context=".Fragments.DescricaoItemFragment">
 
     <RelativeLayout
@@ -19,6 +20,15 @@
             android:scaleType="fitXY" />
 
         <ImageView
+            android:id="@+id/arrowTelaDescricao2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignStart="@id/ivDescricaoItem"
+            android:layout_alignTop="@id/ivDescricaoItem"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/arrowsombra" />
+
+        <ImageView
             android:id="@+id/arrowTelaDescricao"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -28,8 +38,21 @@
             android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
         <TextView
-            android:id="@+id/tvPratoNome"
+            android:id="@+id/tvPratoNome2"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ivDescricaoItem"
+            android:layout_marginStart="17dp"
+            android:background="#050C0C0C"
+            android:shadowRadius="15"
+            android:text="@string/teste_nomeTelaDesricao"
+            android:textColor="#DC131212"
+            android:textSize="30.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPratoNome"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/ivDescricaoItem"
             android:layout_marginStart="17dp"
@@ -40,17 +63,17 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <me.biubiubiu.justifytext.library.JustifyTextView
+        <TextView
             android:id="@+id/tvDescricaoItemC"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivDescricaoItem"
             android:layout_alignStart="@id/ivDescricaoItem"
             android:layout_alignEnd="@id/ivDescricaoItem"
-            android:layout_below="@id/ivDescricaoItem"
-            android:layout_margin="10dp"
-            android:letterSpacing="0.110"
+            android:layout_margin="13dp"
             android:text="@string/teste_descricaoCompleta"
-            android:textSize="18sp" />
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

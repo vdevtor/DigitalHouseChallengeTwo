@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.digitalhousechallenge2.Fragments.CardapioFragment
+import com.example.digitalhousechallenge2.Fragments.MainMenuFragment
 import com.example.digitalhousechallenge2.MainActivity.Companion.fm
 import com.example.digitalhousechallenge2.Models.Pratos
 import com.example.digitalhousechallenge2.Models.Restaurant
@@ -43,9 +44,12 @@ class MainMenuAdapter(
             bundle.putParcelable("codRestaurant",restaurantList[position])
 
             val cardapio = CardapioFragment()
+
             cardapio.arguments = bundle
 
            fm.beginTransaction().replace(R.id.fragmentContainer,cardapio,"card").addToBackStack(null).commit()
+
+
 
         }
 

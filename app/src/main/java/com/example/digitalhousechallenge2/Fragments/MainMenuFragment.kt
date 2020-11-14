@@ -29,15 +29,13 @@ class MainMenuFragment : Fragment() {
 
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         populate()
-        var actionBar = getActionbar()
-        var bar = false
-        if (!bar){
-            actionBar?.title = "DigitalHouse Food"
+        initComponents()
 
-        }
+
 
         val recycleview = view.findViewById<RecyclerView>(R.id.recycleMainMenu)
         recycleview.adapter = MainMenuAdapter(restaurantes)
@@ -45,7 +43,6 @@ class MainMenuFragment : Fragment() {
 
 
     }
-
 
     private fun populate() {
         restaurantes.clear()
@@ -101,5 +98,11 @@ class MainMenuFragment : Fragment() {
     private fun getActionbar() : ActionBar?
     {
         return (this.activity as AppCompatActivity).supportActionBar
+    }
+    private fun initComponents(){
+        var actionBar = getActionbar()
+
+        actionBar?.show()
+
     }
 }

@@ -1,7 +1,6 @@
 package com.example.digitalhousechallenge2.Fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.digitalhousechallenge2.Adapters.CardapioAdapter
-import com.example.digitalhousechallenge2.Adapters.MainMenuAdapter
+import com.example.digitalhousechallenge2.MainActivity
 import com.example.digitalhousechallenge2.Models.Pratos
 import com.example.digitalhousechallenge2.Models.Restaurant
 import com.example.digitalhousechallenge2.R
@@ -38,12 +37,16 @@ class CardapioFragment : Fragment() {
         val restaurant = arguments?.getParcelable<Restaurant>("codRestaurant")
         Glide.with(view.context).load(restaurant?.imageRestaurant).into(ivMainCardapio)
         view.findViewById<TextView>(R.id.tvNomeRestaurantCardapio).text = restaurant?.nomeRestaurant
+        view.findViewById<TextView>(R.id.tvNomeRestaurantCardapio2).text = restaurant?.nomeRestaurant
+
 
         view.findViewById<ImageView>(R.id.arrowTelaPratos).setOnClickListener {
+            fragmentManager?.apply {
+                actionBar?.title = "DigitalHouse Food"
+                this.beginTransaction().replace(R.id.fragmentContainer,MainMenuFragment()).commit()
+                this.beginTransaction().remove(CardapioFragment())
 
 
-            fragmentManager.apply {
-                this?.beginTransaction()?.replace(R.id.fragmentContainer,MainMenuFragment())?.addToBackStack(null)?.commit()
             }
 
         }
